@@ -29,7 +29,7 @@
     network: ext_network
     wait: true
     timeout: 180
-    register: instancefloatingip
+  register: instancefloatingip
   with_dict: "{{ osp_servers }}"
 
 - name: Show "{{ instanceip }}" public IP
