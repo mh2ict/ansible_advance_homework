@@ -1,0 +1,8 @@
+[workstation]
+workstation-2406.rhpds.opentlc.com
+
+[workstation:vars]
+ansible_connection=winrm
+ansible_user=Administrator
+ansible_winrm_server_cert_validation=ignore
+ansible_become=false
