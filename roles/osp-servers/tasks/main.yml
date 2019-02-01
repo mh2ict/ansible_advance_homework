@@ -1,5 +1,4 @@
 ---
-task:
 - name: Create a server instance
   include: osp_servers.yml
   with_dict: "{{ osp_servers }}"
