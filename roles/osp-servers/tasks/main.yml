@@ -4,7 +4,7 @@
     cloud: ospcloud
     name: "{{ item.key }}"
     image: "{{ item.value.image }}"
-    meta: "group={{ item.key }},deployment_name=QA"
+    meta: "{{ item.value.meta }}"
     flavor: "{{ item.value.flavor }}"
     security_groups: "{{ item.value.security_group }}"
     key_name: "{{ item.value.key_name }}"
