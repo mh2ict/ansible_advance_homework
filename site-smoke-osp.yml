@@ -1,6 +1,8 @@
 - hosts: workstation
   gather_facts: false
   tasks:
+  vars:
+    - GUID: 7171
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
