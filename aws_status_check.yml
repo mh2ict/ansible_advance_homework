@@ -1,3 +1,9 @@
+- hosts: workstation
+  become: true
+  gather_facts: false
+  roles:
+    - osp-facts
+
 - hosts: tag_instance_filter_three_tier_app_psrivast_redhat_com
   gather_facts: false
   tasks:
@@ -10,4 +16,3 @@
     delegate_to: localhost
     with_items:
       - "{{ inventory_hostname }}"
-        
