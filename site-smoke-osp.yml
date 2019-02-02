@@ -6,6 +6,8 @@
      cloud: ospcloud
      server: 'frontend'
     register: openstack_info
+  - debug:
+   var: openstack_info
     tags:
       - osp.smoke
   - name: Use Uri module for wrting smoke test.
