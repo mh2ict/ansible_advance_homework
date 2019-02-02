@@ -1,9 +1,11 @@
 ---
-#- hosts: workstation
+- hosts: workstation
+  remote_user: root
 #  become: true
-#  gather_facts: false
-#  roles:
-#    - osp-facts
+  gather_facts: false
+  roles:
+    - osp-facts
+
 - hosts: tag_AnsibleGroup_appdbs, tag_AnsibleGroup_apps, tag_AnsibleGroup_frontends, tag_AnsibleGroup_bastions
 #- hosts: tag_instance_filter_three_tier_app_psrivast_redhat_com
   gather_facts: false
