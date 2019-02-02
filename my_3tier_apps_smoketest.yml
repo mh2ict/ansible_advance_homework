@@ -1,0 +1,17 @@
+---
+# Revese 3 Tier app deployment
+- name: To check the apps
+  hosts: apps
+  become: yes
+  tasks:
+  - name: Curl website
+    uri:
+      url: http://frontend1.{{ GUID }}.example.opentlc.com
+    register: webpage
+  - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+#    when: "'Ansible has done its job' not in webpage.results[0].content"
+    when: "'OK' not in webpage.msg"
+    tags:
+      - osp.smoke
+
