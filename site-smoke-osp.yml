@@ -1,8 +1,6 @@
 - hosts: workstation
   gather_facts: false
   tasks:
-  vars:
-    - GUID: 7171
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
@@ -12,7 +10,7 @@
       - osp.smoke
   - name: Use Uri module for wrting smoke test.
     uri:
-      url: http://frontend1.{{ GUID }}.example.opentlc.com
+      url: http://frontend1.7171.example.opentlc.com
     register: webpage
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
