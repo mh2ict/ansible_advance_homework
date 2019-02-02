@@ -9,21 +9,11 @@
     tags:
       - osp.smoke
   - name: Curl website
-    shell: curl http://frontend1.${GUID}.example.opentlc.com
+      url: http://frontend1.{{ GUID }}.example.opentlc.com
     register: webpage
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
     when: "'Ansible has done its job' not in webpage.results[0].content"
+    when: "'OK' not in webpage.msg"
     tags:
       - osp.smoke
-
-#  - name: Curl website
-#    uri:
-#      url: http://frontend1.{{ GUID }}.example.opentlc.com
-#    register: webpage
-#  - name: Fail if 'Ansible has done its job' is not in the page content
-#    fail:
-#    when: "'Ansible has done its job' not in webpage.results[0].content"
-#    when: "'OK' not in webpage.msg"
-#    tags:
-#      - osp.smoke

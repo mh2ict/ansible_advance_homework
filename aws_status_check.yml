@@ -1,11 +1,4 @@
 ---
-- hosts: workstation
-  remote_user: root
-#  become: true
-  gather_facts: false
-  roles:
-    - osp-facts
-
 - hosts: tag_instance_filter_three_tier_app_mhaque_redhat_com
   gather_facts: false
   tasks:
