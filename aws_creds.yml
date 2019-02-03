@@ -10,6 +10,7 @@
       - python 
       - python-pip 
       - python-devel 
+      - ansible-tower-cli
       - gcc
   - name: Install tower-cli
     pip:
