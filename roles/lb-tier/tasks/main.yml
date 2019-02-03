@@ -1,5 +1,4 @@
 ---
-
 - name: install {{ payload }}
   yum:
     name: "{{ payload }}"
@@ -20,4 +19,3 @@
   service:
     name: "{{ payload }}"
     state: restarted
-

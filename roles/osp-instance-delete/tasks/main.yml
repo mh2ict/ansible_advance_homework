@@ -12,5 +12,4 @@
     state: absent
     reuse_ips: yes
     terminate_volume: yes
-loop: "{{ result.ansible_facts.openstack_servers }}"
-   
+  loop: "{{ result.ansible_facts.openstack_servers }}"
