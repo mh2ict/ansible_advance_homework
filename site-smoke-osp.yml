@@ -6,17 +6,19 @@
      cloud: ospcloud
      server: 'frontend'
     register: openstack_info
-  - debug:
-      var: openstack_info
     tags:
       - osp.smoke
-  - name: Use Uri module for wrting smoke test.
+
+  - name: curl website on QA Env
     uri:
-      url: http://frontend1.7171.example.opentlc.com
+      url: "http://{{ openstack_info.ansible_facts.openstack_servers[0].accessIPv4 }}"
+      return_content: yes
     register: webpage
+    tags:
+      - osp.smoke
+
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
-    when: "'Ansible has done its job' not in webpage.results[0].content"
-    when: "'OK' not in webpage.msg"
+    when: "'Ansible has done its job' not in webpage.content"
     tags:
-      - osp.smoke
+- osp.smoke
